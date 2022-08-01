@@ -1,0 +1,139 @@
+def versions = [
+        MIN_ANDROID_SDK       : 21,
+        TARGET_ANDROID_SDK    : 32,
+        COMPILE_ANDROID_SDK   : 32,
+        Androidx              : [
+                APP_COMPAT       : "1.4.2",
+                CORE_KTX         : "1.8.0",
+                ESPRESSO         : "3.4.0",
+                NAVIGATION       : "2.4.2",
+                CONSTRAINT_LAYOUT: "2.1.4",
+                RECYCLERVIEW     : "1.2.1",
+                EXT              : "1.1.3",
+                LIFECYCLE        : "2.4.1",
+                SAFE_ARGS        : "2.4.2",
+                CUSTOM_CHROME_TAB: "1.4.0",
+                ROOM: "2.4.3"
+        ],
+        MATERIAL              : "1.6.1",
+        JUNIT                 : "4.13.2",
+        COROUTINES            : "1.3.9",
+        VIEWMODEL_LIVEDATA    : "1.1.1",
+        LEGACY_V4             : "1.0.0",
+        HILT                  : "2.38.1",
+        KAPT_HILT             : "2.38.1",
+        HILT_PLUGIN           : "2.38.1",
+        DAGGER                : "2.43.1",
+        COIL                  : "2.1.0",
+        VIEWPAGER2            : "1.0.0",
+        RETROFIT              : "2.9.0",
+        GSON                  : "2.9.0",
+        OKHTTP                : "2.9.0",
+        OKHTTP_LOGGING        : "4.9.1",
+        SHIMMER               : "0.5.0",
+        TIMBER                : "5.0.1",
+        LOTTIE                : "5.2.0",
+        GOOGLE_SERVICES       : "4.3.13",
+        FIREBASE_BOM          : "30.2.0",
+        FIREBASE_ANALYTICS_KTX: "21.1.0",
+        COROUTINE_PLAY_SERVICE: "1.4.3",
+        FIREBASE_STORAGE      : "20.0.1",
+]
+ext.versions = versions
+
+def deps = [
+        ANDROID_CORE_KTX         : "androidx.core:core-ktx:${versions.Androidx.CORE_KTX}",
+        ANDROID_APP_COMPAT       : "androidx.appcompat:appcompat:${versions.Androidx.APP_COMPAT}",
+        ESPRESSO                 : "androidx.test.espresso:espresso-core:${versions.Androidx.ESPRESSO}",
+        NAVIGATION_FRAGMENT      : "androidx.navigation:navigation-fragment-ktx:${versions.Androidx.NAVIGATION}",
+        NAVIGATION_UI            : "androidx.navigation:navigation-ui-ktx:${versions.Androidx.NAVIGATION}",
+        RECYCLERVIEW             : "androidx.recyclerview:recyclerview:${versions.Androidx.RECYCLERVIEW}",
+        ANDROID_CONSTRAINT_LAYOUT: "androidx.constraintlayout:constraintlayout:${versions.Androidx.CONSTRAINT_LAYOUT}",
+        EXT                      : "androidx.test.ext:${versions.Androidx.EXT}",
+        LIFECYCLE                : "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.Androidx.LIFECYCLE}",
+        SAFE_ARGS                : "androidx.navigation:navigation-safe-args-gradle-plugin:${versions.Androidx.SAFE_ARGS}",
+        CUSTOM_CHROME_TAB        : "androidx.browser:browser:${versions.Androidx.CUSTOM_CHROME_TAB}",
+        ROOM_KTX                 : "androidx.room:room-ktx:${versions.Androidx.ROOM}",
+        ROOM_DATABASE            : "androidx.room:room-runtime:${versions.Androidx.ROOM}",
+        ROOM_COMPILER            : "androidx.room:room-compiler:${versions.Androidx.ROOM}",
+
+        JUNIT                    : "junit:junit:${versions.JUNIT}",
+        MATERIAL                 : "com.google.android.material:material:${versions.MATERIAL}",
+        COROUTINES               : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.COROUTINES}",
+        COROUTINES_CORE          : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.COROUTINES}",
+        VIEWMODEL_LIVEDATA       : "android.arch.lifecycle:extensions:${versions.VIEWMODEL_LIVEDATA}",
+        LEGACY_V4                : "androidx.legacy:legacy-support-v4:${versions.LEGACY_V4}",
+        HILT                     : "com.google.dagger:hilt-android:${versions.HILT}",
+        DAGGER                   : "com.google.dagger:dagger:${versions.DAGGER}",
+        DAGGER_SUPPORT           : "com.google.dagger:dagger-android-support:${versions.DAGGER}",
+        DAGGER_COMPILER          : "com.google.dagger:dagger-compiler:${versions.DAGGER}",
+        DAGGER_PROCESSOR         : "com.google.dagger:dagger-android-processor:${versions.DAGGER}",
+        KAPT_HILT                : "com.google.dagger:hilt-compiler:${versions.KAPT_HILT}",
+        HILT_PLUGIN              : "com.google.dagger:hilt-android-gradle-plugin:${versions.HILT_PLUGIN}",
+        GOOGLE_SERVICES          : "com.google.gms:google-services:${versions.GOOGLE_SERVICES}",
+        FIREBASE_BOM             : "com.google.firebase:firebase-bom:${versions.FIREBASE_BOM}",
+        FIREBASE_ANALYTICS_KTX   : "com.google.firebase:firebase-analytics-ktx:${versions.FIREBASE_ANALYTICS_KTX}",
+        FIREBASE_STORAGE         : "com.google.firebase:firebase-storage-ktx:${versions.FIREBASE_STORAGE}",
+        COIL                     : "io.coil-kt:coil:${versions.COIL}",
+        VIEWPAGER2               : "androidx.viewpager2:viewpager2:${versions.VIEWPAGER2}",
+        RETROFIT                 : "com.squareup.retrofit2:retrofit:${versions.RETROFIT}",
+        GSON                     : "com.squareup.retrofit2:converter-gson:${versions.GSON}",
+        OKHTTP                   : "com.squareup.okhttp3:okhttp:${versions.OKHTTP}",
+        OKHTTP_LOGGING           : "com.squareup.okhttp3:logging-interceptor:${versions.OKHTTP_LOGGING}",
+        SHIMMER                  : "com.facebook.shimmer:shimmer:${versions.SHIMMER}",
+        TIMBER                   : "com.jakewharton.timber:timber:${versions.TIMBER}",
+        LOTTIE                   : "com.airbnb.android:lottie:${versions.LOTTIE}",
+        COROUTINE_PLAY_SERVICE   : "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${versions.COROUTINE_PLAY_SERVICE}"
+]
+ext.deps = deps
+
+def gradleDeps = [
+        HILT_PLUGIN    : "${deps.HILT_PLUGIN}",
+        SAFE_ARGS      : "${deps.SAFE_ARGS}",
+//        GOOGLE_SERVICES: "${deps.GOOGLE_SERVICES}",
+]
+ext.gradleDeps = gradleDeps
+
+def implementationAppCompat(DependencyHandler handler) {
+    handler.add("implementation", deps.ANDROID_APP_COMPAT)
+    handler.add("implementation", deps.ANDROID_CORE_KTX)
+}
+
+ext.implementationAppCompat = this.&implementationAppCompat
+
+def implementationNavigation(DependencyHandler handler) {
+    handler.add("implementation", deps.NAVIGATION_FRAGMENT)
+    handler.add("implementation", deps.NAVIGATION_UI)
+    handler.add("implementation", deps.LOTTIE)
+}
+
+ext.implementationNavigation = this.&implementationNavigation
+
+def implementationHilt(DependencyHandler handler) {
+    handler.add("implementation", deps.HILT)
+    handler.add("kapt", deps.KAPT_HILT)
+}
+
+ext.implementationHilt = this.&implementationHilt
+
+def implementationNetwork(DependencyHandler handler) {
+    handler.add("implementation", deps.RETROFIT)
+    handler.add("implementation", deps.GSON)
+    handler.add("implementation", deps.OKHTTP)
+    handler.add("implementation", deps.OKHTTP_LOGGING)
+    handler.add("implementation", deps.GSON)
+}
+
+ext.implementationNetwork = this.&implementationNetwork
+
+def testUnit(DependencyHandler handler) {
+    handler.add("testImplementation", deps.JUNIT)
+    handler.add("testImplementation", deps.EXT)
+}
+
+ext.testUnit = this.&testUnit
+
+def testAndroid(DependencyHandler handler) {
+    handler.add("androidTestImplementation", deps.ESPRESSO)
+}
+ext.testAndroid = this.&testAndroid

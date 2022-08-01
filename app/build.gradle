@@ -1,0 +1,66 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+android {
+    compileSdk versions.COMPILE_ANDROID_SDK
+
+    defaultConfig {
+        applicationId "com.mert.noteverywhere"
+        minSdk versions.MIN_ANDROID_SDK
+        targetSdk versions.TARGET_ANDROID_SDK
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementationAppCompat(dependencies)
+    implementationNavigation(dependencies)
+    implementationHilt(dependencies)
+    implementationNetwork(dependencies)
+    testUnit(dependencies)
+    testAndroid(dependencies)
+
+    implementation deps.RECYCLERVIEW
+    implementation deps.NAVIGATION_FRAGMENT
+    implementation deps.NAVIGATION_UI
+    implementation deps.COROUTINES_CORE
+    implementation deps.COROUTINES
+    implementation deps.ROOM_DATABASE
+    implementation deps.MATERIAL
+    implementation deps.LIFECYCLE
+    kapt deps.ROOM_COMPILER
+    implementation deps.ROOM_KTX
+    implementation deps.ANDROID_CONSTRAINT_LAYOUT
+    implementation deps.VIEWPAGER2
+    implementation deps.COIL
+    implementation deps.SHIMMER
+    implementation deps.TIMBER
+    implementation deps.CUSTOM_CHROME_TAB
+
+
+}
