@@ -1,7 +1,7 @@
 # NotEverywhere
 <p align="center">### Status: 🚧 In progress  </p>
 <p align="center">    
-A demo Note app based on MVVM + Clean architecture.<br>  
+A Note app based on MVVM + Clean architecture.<br>  
 </p>  
 </br>  
 
