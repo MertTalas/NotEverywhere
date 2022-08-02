@@ -57,11 +57,6 @@ dependencies {
     kapt deps.ROOM_COMPILER
     implementation deps.ROOM_KTX
     implementation deps.ANDROID_CONSTRAINT_LAYOUT
-    implementation deps.VIEWPAGER2
-    implementation deps.COIL
     implementation deps.SHIMMER
-    implementation deps.TIMBER
-    implementation deps.CUSTOM_CHROME_TAB
-
-
+    implementation deps.FRAGMENT
 }
