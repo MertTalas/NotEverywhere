@@ -1,4 +1,4 @@
-package com.mert.noteverywhere
+package com.mert.noteverywhere.presentation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.mert.noteverywhere.R
 import com.mert.noteverywhere.databinding.FragmentFirstBinding
 
 /**
