@@ -1,4 +1,4 @@
-# NotEverywhere
+<p align="center">NotEverywhere</p>
 <p align="center">### Status: 🚧 In progress  </p>
 <p align="center">    
 A Note app based on MVVM + Clean architecture.<br>  
