@@ -4,7 +4,7 @@ A Note app based on MVVM + Clean architecture.<br>
 </p>  
 </br>  
 
-## Features
+## App Features
 * 100% Kotlin
 * MVVM with Clean Architecture
 * Android Architecture Components
