@@ -9,7 +9,6 @@ A Note app based on MVVM + Clean architecture.<br>
 * 100% Kotlin
 * MVVM with Clean Architecture
 * Android Architecture Components
-* Kotlin Coroutines + Flow
 * Single activity pattern
-* Jetpack Navigation.
-* Dependency injection with Hilt
+* Jetpack Navigation
+* ROOM Database
