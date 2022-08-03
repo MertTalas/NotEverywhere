@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
@@ -58,6 +59,16 @@ class NoteFragment : Fragment() {
             }
         }
 
+        binding.fabDeleteNote.setOnClickListener {
+            AlertDialog.Builder(context!!)
+                .setTitle("Delete Note")
+                .setMessage("Are you sure to delete this note ?")
+                .setPositiveButton("Yes") {dialogInterface, i -> viewModel.deleteNote(currentNote)}
+                .setNegativeButton("Cancel") {dialogInterface, i -> }
+                .create()
+                .show()
+        }
+
         observeViewModel()
     }
 
@@ -77,6 +88,15 @@ class NoteFragment : Fragment() {
                  binding.etNoteTitle.setText(it.title, TextView.BufferType.EDITABLE)
                  binding.etNoteDesc.setText(it.content, TextView.BufferType.EDITABLE)
              }
+        })
+
+        viewModel.deleted.observe(viewLifecycleOwner, Observer {
+            if (it){
+                Snackbar.make(binding.root,"Note Deleted!!",Snackbar.LENGTH_SHORT).show()
+                Navigation.findNavController(binding.fabDeleteNote).popBackStack()
+            }else{
+                Snackbar.make(binding.root,"Something went wrong!!",Snackbar.LENGTH_SHORT).show()
+            }
         })
     }
 }
