@@ -30,7 +30,7 @@ class NoteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(this).get(NoteViewModel::class.java)
+        viewModel = ViewModelProvider(this)[NoteViewModel::class.java]
 
         binding.fabSaveNote.setOnClickListener {
             if (binding.etNoteTitle.text.toString() != "" || binding.etNoteDesc.text.toString() != "") {
