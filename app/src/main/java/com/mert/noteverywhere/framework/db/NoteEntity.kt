@@ -23,7 +23,8 @@ data class NoteEntity(
             note.title,
             note.content,
             note.creationTime,
-            note.updateTime
+            note.updateTime,
+            note.id
         )
     }
 

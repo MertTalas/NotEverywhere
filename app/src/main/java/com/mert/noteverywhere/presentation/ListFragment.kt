@@ -11,10 +11,10 @@ import androidx.navigation.Navigation.findNavController
 import com.mert.noteverywhere.databinding.FragmentListBinding
 import com.mert.noteverywhere.framework.ListViewModel
 
-class ListFragment : Fragment() {
+class ListFragment : Fragment(), ListActions {
 
     private lateinit var binding: FragmentListBinding
-    private val notesListAdapter = ListAdapter(arrayListOf())
+    private val notesListAdapter = ListAdapter(arrayListOf(), this)
     private lateinit var viewModel: ListViewModel
 
     override fun onCreateView(
@@ -58,5 +58,9 @@ class ListFragment : Fragment() {
 
     private fun goToNoteDetails(id: Long = 0L){
         findNavController(binding.rvNotes).navigate(ListFragmentDirections.actionListFragmentToNoteFragment(id))
+    }
+
+    override fun onClickNote(id: Long) {
+        goToNoteDetails(id)
     }
 }

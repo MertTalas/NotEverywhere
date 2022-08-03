@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
@@ -15,6 +16,7 @@ import com.mert.noteverywhere.framework.NoteViewModel
 
 class NoteFragment : Fragment() {
 
+    private var noteId = 0L
     private lateinit var binding: FragmentNoteBinding
     private lateinit var viewModel: NoteViewModel
     private var currentNote = Note("", "", 0L, 0L)
@@ -31,6 +33,14 @@ class NoteFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(this)[NoteViewModel::class.java]
+
+        arguments?.let {
+            noteId = NoteFragmentArgs.fromBundle(it).noteId
+        }
+
+        if (noteId != 0L){
+            viewModel.getNoteById(noteId)
+        }
 
         binding.fabSaveNote.setOnClickListener {
             if (binding.etNoteTitle.text.toString() != "" || binding.etNoteDesc.text.toString() != "") {
@@ -59,6 +69,14 @@ class NoteFragment : Fragment() {
             }else{
                 Snackbar.make(binding.root,"Something went wrong!!",Snackbar.LENGTH_SHORT).show()
             }
+        })
+
+        viewModel.currentNote.observe(viewLifecycleOwner, Observer { note ->
+             note?.let {
+                 currentNote = it
+                 binding.etNoteTitle.setText(it.title, TextView.BufferType.EDITABLE)
+                 binding.etNoteDesc.setText(it.content, TextView.BufferType.EDITABLE)
+             }
         })
     }
 }
