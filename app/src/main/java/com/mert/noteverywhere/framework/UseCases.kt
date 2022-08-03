@@ -7,7 +7,7 @@ import com.mert.core.usecase.RemoveNoteUseCase
 
 data class UseCases(
     val addNoteUseCase: AddNoteUseCase,
-    val gelAllNotesUseCase: GetAllNotesUseCase,
+    val getAllNotesUseCase: GetAllNotesUseCase,
     val getNoteUseCase: GetNoteUseCase,
     val removeNoteUseCase: RemoveNoteUseCase
 )

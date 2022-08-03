@@ -30,7 +30,7 @@ class ListViewModel(application: Application): AndroidViewModel(application) {
 
     fun getNotes() {
         coroutineScope.launch {
-            val noteList = useCases.gelAllNotesUseCase()
+            val noteList = useCases.getAllNotesUseCase()
             notes.postValue(noteList)
         }
     }
