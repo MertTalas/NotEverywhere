@@ -1,6 +1,5 @@
 package com.mert.core.usecase
 
-import com.mert.core.data.Note
 import com.mert.core.repository.NoteRepositoryImpl
 
 class GetNoteUseCase(private val noteRepositoryImpl: NoteRepositoryImpl) {
