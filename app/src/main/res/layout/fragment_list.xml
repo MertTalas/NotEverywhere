@@ -53,5 +53,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/tvTitle"
         app:srcCompat="@drawable/ic_create"
-        android:focusable="true" />
+        android:focusable="true"
+        app:backgroundTint="@color/success"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

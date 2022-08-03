@@ -60,6 +60,23 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/tvTitle"
         app:srcCompat="@drawable/ic_save"
-        android:focusable="true" />
+        android:focusable="true"
+        app:backgroundTint="@color/secondary_dark"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabDeleteNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="@dimen/fab_margin"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fabSaveNote"
+        app:srcCompat="@drawable/ic_delete"
+        app:backgroundTint="@color/error"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
