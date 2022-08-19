@@ -3,7 +3,7 @@ buildscript {
     apply from: 'versions.gradle'
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath gradleDeps.HILT_PLUGIN

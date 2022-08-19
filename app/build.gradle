@@ -42,8 +42,6 @@ dependencies {
 
     implementationAppCompat(dependencies)
     implementationNavigation(dependencies)
-    implementationHilt(dependencies)
-    implementationNetwork(dependencies)
     testUnit(dependencies)
     testAndroid(dependencies)
 
@@ -58,6 +56,9 @@ dependencies {
     kapt deps.ROOM_COMPILER
     implementation deps.ROOM_KTX
     implementation deps.ANDROID_CONSTRAINT_LAYOUT
-    implementation deps.SHIMMER
     implementation deps.FRAGMENT
+    implementation deps.DAGGER
+    implementation deps.DAGGER_SUPPORT
+    kapt deps.DAGGER_COMPILER
+    kapt deps.DAGGER_PROCESSOR
 }
