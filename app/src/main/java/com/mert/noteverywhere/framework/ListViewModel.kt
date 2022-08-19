@@ -9,22 +9,26 @@ import com.mert.core.usecase.AddNoteUseCase
 import com.mert.core.usecase.GetAllNotesUseCase
 import com.mert.core.usecase.GetNoteUseCase
 import com.mert.core.usecase.RemoveNoteUseCase
+import com.mert.noteverywhere.framework.di.AppModule
+import com.mert.noteverywhere.framework.di.DaggerViewModelComponent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 class ListViewModel(application: Application): AndroidViewModel(application) {
 
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
 
-    val repositoryImpl = NoteRepositoryImpl(RoomNoteDataSource(application))
+    @Inject
+    lateinit var useCases: UseCases
 
-    val useCases = UseCases(
-        AddNoteUseCase(repositoryImpl),
-        GetAllNotesUseCase(repositoryImpl),
-        GetNoteUseCase(repositoryImpl),
-        RemoveNoteUseCase(repositoryImpl)
-    )
+    init {
+        DaggerViewModelComponent.builder()
+            .appModule(AppModule((getApplication())))
+            .build()
+            .inject(this)
+    }
 
     val notes = MutableLiveData<List<Note>>()
 
