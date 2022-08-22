@@ -1,10 +1,14 @@
 package com.mert.noteverywhere.presentation
 
+import android.content.Context
+import android.content.Context.INPUT_METHOD_SERVICE
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
@@ -16,6 +20,7 @@ import com.mert.core.data.Note
 import com.mert.noteverywhere.R
 import com.mert.noteverywhere.databinding.FragmentNoteBinding
 import com.mert.noteverywhere.framework.NoteViewModel
+import kotlinx.android.synthetic.main.fragment_note.*
 
 class NoteFragment : Fragment() {
 
@@ -78,13 +83,28 @@ class NoteFragment : Fragment() {
                 .show()
         }
 
+        binding.ivShare.setOnClickListener {
+            val sendIntent: Intent = Intent().apply {
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_TEXT, binding.etNoteDesc.text)
+                type = "text/plain"
+            }
+            val shareIntent = Intent.createChooser(sendIntent, null)
+            startActivity(shareIntent)
+        }
         observeViewModel()
+    }
+
+    private fun hideKeyboard() {
+        val imm = context?.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(tvTitle.windowToken,0)
     }
 
     private fun observeViewModel() {
         viewModel.saved.observe(viewLifecycleOwner, Observer {
             if (it){
                 Snackbar.make(binding.root,"Note Created!",Snackbar.LENGTH_SHORT).show()
+                hideKeyboard()
                 Navigation.findNavController(binding.fabSaveNote).popBackStack()
             }else{
                 Snackbar.make(binding.root,"Something went wrong!!",Snackbar.LENGTH_SHORT).show()

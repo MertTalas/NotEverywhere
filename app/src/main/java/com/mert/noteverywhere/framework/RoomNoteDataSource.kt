@@ -7,7 +7,7 @@ import com.mert.noteverywhere.framework.db.NoteDatabase
 import com.mert.noteverywhere.framework.db.NoteEntity
 
 class RoomNoteDataSource(context: Context): NoteRepository {
-    val noteDao = NoteDatabase.getInstance(context).noteDao()
+    private val noteDao = NoteDatabase.getInstance(context).noteDao()
 
     override suspend fun addNote(note: Note) = noteDao.addNoteEntity(NoteEntity.fromNote(note))
 
