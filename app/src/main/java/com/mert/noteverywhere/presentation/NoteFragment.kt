@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.google.android.material.snackbar.Snackbar
 import com.mert.core.data.Note
+import com.mert.noteverywhere.R
 import com.mert.noteverywhere.databinding.FragmentNoteBinding
 import com.mert.noteverywhere.framework.NoteViewModel
 
@@ -31,6 +33,13 @@ class NoteFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+            binding.etNoteTitle.setBackgroundResource(R.drawable.button_selector_dark)
+            binding.etNoteDesc.setBackgroundResource(R.drawable.button_selector_dark)
+        } else {
+            binding.etNoteTitle.setBackgroundResource(R.drawable.button_selector)
+            binding.etNoteDesc.setBackgroundResource(R.drawable.button_selector)
+        }
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(this)[NoteViewModel::class.java]

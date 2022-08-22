@@ -10,7 +10,10 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="list_title">My Notes</string>
-    <string name="note_title">Add Note</string>
+    <string name="note_title">Note</string>
     <string name="note_title_hint">Enter Title</string>
     <string name="note_desc_hint">Enter Your Detail</string>
+    <string name="title">Title</string>
+    <string name="desc">Desc</string>
+    <string name="date">Date</string>
 </resources>

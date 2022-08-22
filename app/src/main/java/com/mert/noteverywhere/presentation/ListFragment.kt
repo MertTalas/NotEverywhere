@@ -1,10 +1,10 @@
 package com.mert.noteverywhere.presentation
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation.findNavController
@@ -56,8 +56,12 @@ class ListFragment : Fragment(), ListActions {
         viewModel.getNotes()
     }
 
-    private fun goToNoteDetails(id: Long = 0L){
-        findNavController(binding.rvNotes).navigate(ListFragmentDirections.actionListFragmentToNoteFragment(id))
+    private fun goToNoteDetails(id: Long = 0L) {
+        findNavController(binding.rvNotes).navigate(
+            ListFragmentDirections.actionListFragmentToNoteFragment(
+                id
+            )
+        )
     }
 
     override fun onClickNote(id: Long) {
