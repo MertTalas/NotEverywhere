@@ -4,11 +4,6 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.mert.core.data.Note
-import com.mert.core.repository.NoteRepositoryImpl
-import com.mert.core.usecase.AddNoteUseCase
-import com.mert.core.usecase.GetAllNotesUseCase
-import com.mert.core.usecase.GetNoteUseCase
-import com.mert.core.usecase.RemoveNoteUseCase
 import com.mert.noteverywhere.framework.di.AppModule
 import com.mert.noteverywhere.framework.di.DaggerViewModelComponent
 import kotlinx.coroutines.CoroutineScope
@@ -16,7 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class ListViewModel(application: Application): AndroidViewModel(application) {
+class ListViewModel(application: Application) : AndroidViewModel(application) {
 
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
 

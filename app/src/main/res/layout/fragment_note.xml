@@ -14,7 +14,7 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/open_sans"
-        android:gravity="center"
+        android:gravity="start"
         android:text="@string/note_title"
         android:textSize="20sp"
         android:textStyle="bold"

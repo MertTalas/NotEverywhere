@@ -1,10 +1,8 @@
 package com.mert.noteverywhere.presentation
 
-import android.content.Context
 import android.content.Context.INPUT_METHOD_SERVICE
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +10,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
@@ -41,9 +40,11 @@ class NoteFragment : Fragment() {
         if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
             binding.etNoteTitle.setBackgroundResource(R.drawable.button_selector_dark)
             binding.etNoteDesc.setBackgroundResource(R.drawable.button_selector_dark)
+            binding.ivShare.setImageResource(R.drawable.ic_share_dark)
         } else {
             binding.etNoteTitle.setBackgroundResource(R.drawable.button_selector)
             binding.etNoteDesc.setBackgroundResource(R.drawable.button_selector)
+            binding.ivShare.setImageResource(R.drawable.ic_share)
         }
         super.onViewCreated(view, savedInstanceState)
 
@@ -53,7 +54,7 @@ class NoteFragment : Fragment() {
             noteId = NoteFragmentArgs.fromBundle(it).noteId
         }
 
-        if (noteId != 0L){
+        if (noteId != 0L) {
             viewModel.getNoteById(noteId)
         }
 
@@ -77,8 +78,8 @@ class NoteFragment : Fragment() {
             AlertDialog.Builder(context!!)
                 .setTitle("Delete Note")
                 .setMessage("Are you sure to delete this note ?")
-                .setPositiveButton("Yes") {dialogInterface, i -> viewModel.deleteNote(currentNote)}
-                .setNegativeButton("Cancel") {dialogInterface, i -> }
+                .setPositiveButton("Yes") { dialogInterface, i -> viewModel.deleteNote(currentNote) }
+                .setNegativeButton("Cancel") { dialogInterface, i -> }
                 .create()
                 .show()
         }
@@ -97,34 +98,34 @@ class NoteFragment : Fragment() {
 
     private fun hideKeyboard() {
         val imm = context?.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(tvTitle.windowToken,0)
+        imm.hideSoftInputFromWindow(tvTitle.windowToken, 0)
     }
 
     private fun observeViewModel() {
         viewModel.saved.observe(viewLifecycleOwner, Observer {
-            if (it){
-                Snackbar.make(binding.root,"Note Created!",Snackbar.LENGTH_SHORT).show()
+            if (it) {
+                Snackbar.make(binding.root, "Note Created!", Snackbar.LENGTH_SHORT).show()
                 hideKeyboard()
                 Navigation.findNavController(binding.fabSaveNote).popBackStack()
-            }else{
-                Snackbar.make(binding.root,"Something went wrong!!",Snackbar.LENGTH_SHORT).show()
+            } else {
+                Snackbar.make(binding.root, "Something went wrong!!", Snackbar.LENGTH_SHORT).show()
             }
         })
 
         viewModel.currentNote.observe(viewLifecycleOwner, Observer { note ->
-             note?.let {
-                 currentNote = it
-                 binding.etNoteTitle.setText(it.title, TextView.BufferType.EDITABLE)
-                 binding.etNoteDesc.setText(it.content, TextView.BufferType.EDITABLE)
-             }
+            note?.let {
+                currentNote = it
+                binding.etNoteTitle.setText(it.title, TextView.BufferType.EDITABLE)
+                binding.etNoteDesc.setText(it.content, TextView.BufferType.EDITABLE)
+            }
         })
 
         viewModel.deleted.observe(viewLifecycleOwner, Observer {
-            if (it){
-                Snackbar.make(binding.root,"Note Deleted!!",Snackbar.LENGTH_SHORT).show()
+            if (it) {
+                Snackbar.make(binding.root, "Note Deleted!!", Snackbar.LENGTH_SHORT).show()
                 Navigation.findNavController(binding.fabDeleteNote).popBackStack()
-            }else{
-                Snackbar.make(binding.root,"Something went wrong!!",Snackbar.LENGTH_SHORT).show()
+            } else {
+                Snackbar.make(binding.root, "Something went wrong!!", Snackbar.LENGTH_SHORT).show()
             }
         })
     }

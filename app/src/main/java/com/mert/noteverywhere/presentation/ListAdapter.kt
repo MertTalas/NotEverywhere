@@ -10,10 +10,11 @@ import kotlinx.android.synthetic.main.item_note.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ListAdapter(var notes: ArrayList<Note>, val actions: ListActions): RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
+class ListAdapter(var notes: ArrayList<Note>, val actions: ListActions) :
+    RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ListViewHolder(
-        LayoutInflater.from(parent.context).inflate(R.layout.item_note,parent,false)
+        LayoutInflater.from(parent.context).inflate(R.layout.item_note, parent, false)
     )
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
@@ -22,14 +23,14 @@ class ListAdapter(var notes: ArrayList<Note>, val actions: ListActions): Recycle
 
     override fun getItemCount() = notes.size
 
-    inner class ListViewHolder(view: View): RecyclerView.ViewHolder(view){
+    inner class ListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         private val noteLayout = view.noteLayout
         private val noteTitle = view.tvTitle
         private val noteDesc = view.tvDesc
         private val noteDate = view.tvDate
 
-        fun bind(note: Note){
+        fun bind(note: Note) {
             noteTitle.text = note.title
             noteDesc.text = note.content
 
@@ -43,7 +44,7 @@ class ListAdapter(var notes: ArrayList<Note>, val actions: ListActions): Recycle
         }
     }
 
-    fun updateList(newNotes: List<Note>){
+    fun updateList(newNotes: List<Note>) {
         notes.clear()
         notes.addAll(newNotes)
         notifyDataSetChanged()
