@@ -24,4 +24,4 @@ A Note app based on MVVM + Clean architecture.<br>
 * UI test
 
 <h3 align="left">Download</h3>
-<p align="left"> <a href="https://play.google.com/store/apps/details?id=com.mert.noteverywhere" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="googleplaystore" width="40" height="40"/> </a> </p>
+<p align="left"> <a href="https://play.google.com/store/apps/details?id=com.mert.noteverywhere" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="googleplaystore" width="100" height="100"/> </a> </p>
