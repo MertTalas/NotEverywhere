@@ -87,8 +87,11 @@ class NoteFragment : Fragment() {
         binding.ivShare.setOnClickListener {
             val sendIntent: Intent = Intent().apply {
                 action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_TEXT, binding.etNoteDesc.text)
                 type = "text/plain"
+                if (`package`.equals("com.whatsapp")){
+                    setPackage("com.whatsapp")
+                }
+                putExtra(Intent.EXTRA_TEXT, binding.etNoteDesc.text.toString())
             }
             val shareIntent = Intent.createChooser(sendIntent, null)
             startActivity(shareIntent)
