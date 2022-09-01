@@ -97,7 +97,7 @@ class ListFragment : Fragment(), ListActions {
                     notesListAdapter.add(position, currentNote)
                     viewModel.saveNotes(currentNote)
                     notesListAdapter.notifyItemInserted(position)
-                }).show()
+                }).setDuration(6000).show()
             }
         }).attachToRecyclerView(binding.rvNotes)
     }

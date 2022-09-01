@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         sharedPreferences = getSharedPreferences("SharedPreferences", MODE_PRIVATE);
         nightMode = sharedPreferences.getInt("NightModeInt", 1);
-        switchMode = sharedPreferences.getBoolean("SwitchModeBool", true)
+        switchMode = sharedPreferences.getBoolean("SwitchModeBool", false)
         AppCompatDelegate.setDefaultNightMode(nightMode);
         if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
             setTheme(R.style.Theme_Dark)
