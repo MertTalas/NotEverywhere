@@ -50,4 +50,17 @@ class ListAdapter(var notes: ArrayList<Note>, val actions: ListActions) :
         notifyDataSetChanged()
     }
 
+    fun removeAt(adapterPosition: Int) {
+        notes.removeAt(adapterPosition)
+        notifyItemRemoved(adapterPosition)
+    }
+
+    fun add(position: Int, deletedCourse: Note) {
+        notes.add(position, deletedCourse)
+    }
+
+    fun get(adapterPosition: Int): Note {
+        return notes[adapterPosition]
+    }
+
 }
