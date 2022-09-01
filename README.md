@@ -11,17 +11,19 @@ A Note app based on MVVM + Clean architecture.<br>
 * Android Architecture Components,
 * Single activity pattern,
 * Kotlin Coroutines,
+* Dependency Injection,
 * Jetpack Navigation,
 * Animations,
 * AlertDialog,
 * ViewBinding,
 * LiveData,
-* Room Database
+* Room Database,
+* Data Sharing with third parties,
+* Swipte to delete
 
 ## v2
-* Dependency Injection
-* Unit test
-* UI test
+* Note Lock
+* Note Widgets
 
 <h3 align="left">Download this app on store:</h3>
 <p align="left"> <a href="https://play.google.com/store/apps/details?id=com.mert.noteverywhere" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="googleplaystore" width="300" height="300"/> </a> </p>
