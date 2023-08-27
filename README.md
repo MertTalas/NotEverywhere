@@ -1,6 +1,9 @@
 # NotEverywhere
 <p align="center">    
-A Note app based on MVVM + Clean architecture.<br>  
+Project Topic: A plain, stylish, simple Android note-taking application written using up-to-date technologies.
+Project Duration: 3 weeks
+Number of People in the Project: My own project
+Description of the Project: 100% Kotlin, MVVM with Clean Architecture, SOLID Principles, Android Architecture Components, Single activity pattern, Kotlin Coroutines, Jetpack Navigation, Animations, AlertDialog, ViewBinding, LiveData, Room Database, Dependency Injection with Dagger<br>  
 </p>  
 </br>  
 
